@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 #include <QString>
 #include <QMainWindow>
+#include <QTime>
+#include <QTimer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -14,6 +16,12 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    QTime *displayTime = new QTime;
+    QTimer *timer = new QTimer;
+    bool buttonStart = true;
+
+protected slots:
+    void updateTime();
 
 public slots:
 
@@ -31,6 +39,8 @@ private slots:
     void on_spinBox_textChanged(const QString &arg1);
 
     void on_ButtonSizeOstrich_clicked();
+
+    void on_startButton_clicked();
 
 private:
     Ui::MainWindow *ui;

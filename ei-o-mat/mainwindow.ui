@@ -113,7 +113,7 @@
      <string> g</string>
     </property>
     <property name="prefix">
-     <string> </string>
+     <string/>
     </property>
     <property name="minimum">
      <number>10</number>
@@ -141,6 +141,16 @@
     </property>
     <property name="text">
      <string>Straußen Ei</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNumber">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>170</y>
+      <width>151</width>
+      <height>71</height>
+     </rect>
     </property>
    </widget>
   </widget>

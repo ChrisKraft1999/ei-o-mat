@@ -10,6 +10,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    connect(timer,SIGNAL(timeout()), this, SLOT(updateTime()));
+    timer->setSingleShot(true);
 }
 
 MainWindow::~MainWindow()
@@ -77,4 +79,34 @@ void MainWindow::on_spinBox_textChanged(const QString &arg1)
     if ((1300 <= i) && (i < 1900)){
         ui->ButtonSizeXL->setChecked(true);
     }
+}
+
+
+void MainWindow::on_startButton_clicked()
+{
+    if(buttonStart == true)
+    {
+        buttonStart = false;
+        //ui->timeEdit->setEnabled(false);
+        //*displayTime = ui->timeEdit->time();
+        //ui->timerLabel->setText(displayTime->toString("hh:mm:ss"));
+        timer->start(1000);
+    }
+    else
+    {
+        buttonStart = true;
+        //ui->startButton->setText("Start");
+        //ui->timeEdit->setEnabled(true);
+        //ui->timeEdit->setTime(*displayTime);
+        timer->stop();
+    }
+}
+
+void MainWindow::updateTime()
+{
+    QTime newTime = displayTime->addSecs(-1);
+    displayTime->setHMS(newTime.hour(),newTime.minute(),newTime.second());
+    //ui->timerLabel->setText(displayTime->toString("hh:mm:ss"));
+    timer->start(1000);
+
 }
