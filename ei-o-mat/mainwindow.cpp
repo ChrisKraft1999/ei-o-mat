@@ -4,6 +4,7 @@
 #include <QString>
 #include <QStringBuilder>
 #include <QLabel>
+#include <Eiertimer.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)

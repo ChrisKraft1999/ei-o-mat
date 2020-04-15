@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QTime>
 #include <QTimer>
+#include <Eiertimer.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
